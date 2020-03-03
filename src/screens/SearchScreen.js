@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import SearchBar from '../components/SearchBar';
 
@@ -18,16 +18,15 @@ const SearchScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <View sytle={styles.searchBar}>
+    <>
+      <View style={styles.container}>
         <SearchBar
           term={term}
           onTermChange={setTerm}
           onTermSubmit={() => newsSearchApi(term)}
         />
         {errorMessage ? <Text>{errorMessage}</Text> : null}
-        <Text>Today's news</Text>
-        <Text>We have found {results.length} results</Text>
+        {/* <Text>We have found {results.length} results</Text> */}
         {/* <ResultList results={filterResultsBySource('cnn')} title="CNN" />
         <ResultList
           results={filterResultsBySource('nbc-news')}
@@ -37,19 +36,16 @@ const SearchScreen = () => {
           results={filterResultsBySource('fox-news')}
           title="Fox News"
         /> */}
-        <ResultList results={results} title="Top News" />
+        <ResultList results={results} title="Top News Today" />
       </View>
-    </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 15,
-  },
-  searchBar: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexGrow: 1,
   },
   searchIcon: {
     flexDirection: 'row',

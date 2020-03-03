@@ -4,7 +4,7 @@ import {Item} from 'native-base';
 
 const ResultsDetail = ({result}) => {
   return (
-    <View>
+    <View style={{marginBottom: 15}}>
       <Image style={styles.image} source={{uri: result.urlToImage}} />
       <Text style={styles.title}>{result.title}</Text>
       <Text>Source: {result.source.name}</Text>
