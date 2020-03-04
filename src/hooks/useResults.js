@@ -5,19 +5,7 @@ export default () => {
   const [results, setResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
 
-  // const searchApi = async () => {
-  //   const response = await yelp.get('/search ', {
-  //     params: {
-  //       limit: 50,
-  //       term,
-  //       location: 'san jose',
-  //     },
-  //   });
-  //   setResults(response.data.businesses);
-  //   console.log(response);
-  // };
-
-  //test news
+  //get data from newsapi
   const newsSearchApi = async searchTerm => {
     try {
       const newsresponse = await newsapi.get('/everything', {
@@ -33,9 +21,6 @@ export default () => {
     }
   };
 
-  // Call searchApi when component
-  // is first rendered. BAD CODE!
-  // newsSearchApi('us');
   useEffect(() => {
     newsSearchApi('us');
   }, []);

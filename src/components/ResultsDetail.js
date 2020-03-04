@@ -1,25 +1,44 @@
 import React from 'react';
 import {View, Image, Text, StyleSheet} from 'react-native';
-import {Item} from 'native-base';
 
 const ResultsDetail = ({result}) => {
   return (
-    <View style={{marginBottom: 15}}>
-      <Image style={styles.image} source={{uri: result.urlToImage}} />
-      <Text style={styles.title}>{result.title}</Text>
-      <Text>Source: {result.source.name}</Text>
+    <View style={styles.headlineContainer}>
+      <View style={styles.textContainer}>
+        <Text style={styles.title}>{result.title}</Text>
+        <Text>Source: {result.source.name}</Text>
+      </View>
+      <Image
+        style={styles.image}
+        resizeMode="cover"
+        source={{uri: result.urlToImage}}
+      />
     </View>
   );
 };
 
+const borderRadius = 5; // border radius for content styling
 const styles = StyleSheet.create({
+  headlineContainer: {
+    marginVertical: 5,
+    borderRadius: borderRadius,
+    borderWidth: 1,
+    backgroundColor: 'grey',
+  },
   image: {
-    width: 250,
-    height: 120,
-    borderRadius: 3,
+    flex: 1,
+    width: undefined,
+    height: 150,
+    borderBottomLeftRadius: borderRadius,
+    borderBottomRightRadius: borderRadius,
   },
   title: {
     fontWeight: 'bold',
+  },
+  textContainer: {
+    borderColor: 'black',
+    borderBottomWidth: 1,
+    paddingLeft: 5,
   },
 });
 
