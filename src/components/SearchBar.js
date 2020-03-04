@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const SearchBar = ({term, onTermChange, onTermSubmit}) => {
   return (
     <View style={styles.background}>
-      <Icon name="search" size={30} color="black" style={styles.iconStyle} />
+      <Icon name="search" style={styles.iconStyle} />
       <TextInput
         style={styles.inputStyle}
         placeholder="Search"
@@ -22,15 +22,17 @@ const SearchBar = ({term, onTermChange, onTermSubmit}) => {
 const styles = StyleSheet.create({
   background: {
     backgroundColor: '#D3D3D3',
+    marginTop: 10,
     height: 50,
     borderRadius: 5,
     flexDirection: 'row',
-    marginTop: 10,
+    justifyContent: 'space-between',
   },
   iconStyle: {
     alignSelf: 'center',
-    fontSize: 35,
+    fontSize: 30,
     marginHorizontal: 15,
+    color: 'grey',
   },
   inputStyle: {
     flex: 1,

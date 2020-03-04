@@ -11,6 +11,7 @@ const ResultList = ({title, results, navigation}) => {
       <Text>Results: {results.length} </Text>
       <FlatList
         horizontal={false}
+        showsVerticalScrollIndicator="none"
         data={results}
         keyExtractor={result => result.title}
         renderItem={({item}) => {
